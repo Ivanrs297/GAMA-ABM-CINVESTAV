@@ -8,7 +8,9 @@
 model GIS
 
 global {
+	// TODO Change shape file for the correct one for cinvestav
 	file rooms_file <- file("../includes/building.shp");
+	
 	geometry shape <- envelope(rooms_file);
 	init {
 		create room from: rooms_file with: [type:: read("NATURE")] {
