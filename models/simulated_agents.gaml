@@ -43,25 +43,9 @@ global {
 			}
 
 		}
-		create db_agent number: 1;
 		
 	}
 
-}
-
-species db_agent skills: [SQLSKILL] {
-
-	init {
-		map<string, string> MySQL <- ['host'::'us-cdbr-iron-east-05.cleardb.net', 'dbtype'::'MySQL', 'database'::'heroku_f0851cd0e4a3bee', // it may be a null string
-		'port'::'3306', 'user'::'bfe28eb0ef2699', 'passwd'::'871211a6'];
-		if (self testConnection (params: MySQL)) {
-			write "Connection is OK";
-		} else {
-			write "Connection is false";
-		} } 
-	aspect db_base {
-		draw "db_agent" color: #yellow font: font('Default', 25, #bold);
-	}	
 }
 
 
